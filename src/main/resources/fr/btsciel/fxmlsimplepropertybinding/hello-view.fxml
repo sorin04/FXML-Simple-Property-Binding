@@ -3,13 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.btsciel.fxmlsimplepropertybinding.Controller"
+            prefHeight="400.0" prefWidth="600.0">
+
    <children>
-      <TextField layoutX="52.0" layoutY="75.0" promptText="Hauteur" />
-      <TextField layoutX="60.0" layoutY="250.0" promptText="Largeur" />
-      <TextField layoutX="332.0" layoutY="75.0" />
-      <TextField layoutX="349.0" layoutY="250.0" />
+      <TextField fx:id="hauteur" layoutX="52.0" layoutY="75.0" promptText="Hauteur" />
+      <TextField fx:id="largeur" layoutX="60.0" layoutY="250.0" promptText="Largeur" />
+      <TextField fx:id="perimetre" layoutX="332.0" layoutY="75.0" />
+      <TextField fx:id="surface" layoutX="349.0" layoutY="250.0" />
       <Label layoutX="339.0" layoutY="58.0" prefHeight="17.0" prefWidth="105.0" text="Perimetre" />
-      <Label layoutX="349.0" layoutY="233.0" prefHeight="17.0" prefWidth="84.0" text="Surface" />
+      <Label layoutX="354.0" layoutY="232.0" prefHeight="17.0" prefWidth="105.0" text="Surface" />
+      <Slider fx:id="slider_Hauteur" layoutX="24.0" layoutY="37.0" orientation="VERTICAL" />
+      <Slider fx:id="slider_Largeur" layoutX="65.0" layoutY="284.0" orientation="HORIZONTAL" />
    </children>
 </AnchorPane>

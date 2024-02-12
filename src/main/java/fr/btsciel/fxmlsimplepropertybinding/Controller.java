@@ -1,13 +1,10 @@
 package fr.btsciel.fxmlsimplepropertybinding;
 
-import javafx.beans.binding.Binding;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -17,27 +14,33 @@ import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
 
 import java.net.URL;
+
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class Controller implements Initializable {
 
+    @FXML
     public TextField hauteur;
+    @FXML
     public TextField largeur;
+    @FXML
     public TextField surface;
+    @FXML
     public TextField perimetre;
 
+    @FXML
     public Slider slider_Hauteur;
+    @FXML
+    public Slider slider_Largeur;
 
 
-    DoubleProperty h;
-    DoubleProperty l;
-    DoubleProperty s;
-    DoubleProperty p;
+    DoubleProperty h = new SimpleDoubleProperty();
+    DoubleProperty l = new SimpleDoubleProperty();
+    DoubleProperty s = new SimpleDoubleProperty();
+    DoubleProperty p = new SimpleDoubleProperty();
 
     StringConverter sc = new DoubleStringConverter();
-
-
-
+    Double SEUIL_P = 1500.0;
 
 
 
@@ -57,9 +60,23 @@ public class HelloController implements Initializable {
                 .then(false)
                 .otherwise(true));
 
-        perimetre.backgroundProperty().bind(Bindings.when(p.greaterThan(1500))
+        perimetre.backgroundProperty().bind(Bindings.when(p.greaterThan(SEUIL_P))
+                .then(new Background(new BackgroundFill(Color.RED,null,null)))
+                .otherwise(new Background(new BackgroundFill(Color.AQUA,null,null))));
+
+
+
+        Bindings.bindBidirectional(slider_Largeur.valueProperty(), l);
+
+
+        slider_Largeur.visibleProperty().bind(Bindings.when(h.greaterThan(100))
+                .then(false)
+                .otherwise(true));
+
+        surface.backgroundProperty().bind(Bindings.when(p.greaterThan(SEUIL_P))
                 .then(new Background(new BackgroundFill(Color.RED,null,null)))
                 .otherwise(new Background(new BackgroundFill(Color.AQUA,null,null))));
 
     }
+
 }
