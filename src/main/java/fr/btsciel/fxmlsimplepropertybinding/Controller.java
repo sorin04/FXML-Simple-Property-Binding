@@ -41,8 +41,7 @@ public class Controller implements Initializable {
 
     StringConverter sc = new DoubleStringConverter();
     Double SEUIL_P = 1500.0;
-
-
+    Double SEUIL_S= 5000.0;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -64,19 +63,15 @@ public class Controller implements Initializable {
                 .then(new Background(new BackgroundFill(Color.RED,null,null)))
                 .otherwise(new Background(new BackgroundFill(Color.AQUA,null,null))));
 
+        Bindings.bindBidirectional(largeur.textProperty(),slider_Largeur.valueProperty(),sc);
 
-
-        Bindings.bindBidirectional(slider_Largeur.valueProperty(), l);
-
-
-        slider_Largeur.visibleProperty().bind(Bindings.when(h.greaterThan(100))
+        slider_Largeur.visibleProperty().bind(Bindings.when(l.greaterThan(100))
                 .then(false)
                 .otherwise(true));
 
-        surface.backgroundProperty().bind(Bindings.when(p.greaterThan(SEUIL_P))
+        surface.backgroundProperty().bind(Bindings.when(s.greaterThan(SEUIL_S))
                 .then(new Background(new BackgroundFill(Color.RED,null,null)))
                 .otherwise(new Background(new BackgroundFill(Color.AQUA,null,null))));
 
     }
-
 }
