@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane prefHeight="493.0" prefWidth="845.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.btsciel.fxmlsimplepropertybinding.Controller">
+
+   <children>
+      <TextField fx:id="hauteur" layoutX="60.0" layoutY="88.0" promptText="Hauteur" />
+      <TextField fx:id="largeur" layoutX="65.0" layoutY="274.0" promptText="Largeur" />
+      <TextField fx:id="perimetre" layoutX="339.0" layoutY="88.0" />
+      <TextField fx:id="surface" layoutX="348.0" layoutY="286.0" />
+      <Label layoutX="339.0" layoutY="71.0" prefHeight="17.0" prefWidth="105.0" text="Perimetre" />
+      <Label layoutX="354.0" layoutY="267.0" prefHeight="17.0" prefWidth="105.0" text="Surface" />
+      <Slider fx:id="slider_Hauteur" layoutX="24.0" layoutY="37.0" orientation="VERTICAL" />
+      <Slider fx:id="slider_Largeur" layoutX="69.0" layoutY="311.0" orientation="HORIZONTAL" />
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="568.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <RadioButton layoutX="31.0" layoutY="395.0" mnemonicParsing="false" text="Triangle" />
+      <RadioButton layoutX="31.0" layoutY="436.0" mnemonicParsing="false" text="Cercle" />
+      <Circle fx:id="cercle" fill="#298002" layoutX="668.0" layoutY="384.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
